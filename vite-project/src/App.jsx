@@ -4,18 +4,17 @@ import './App.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [title, setTitle] = useState(false)
 
-  const plus = () => {
-    setCount(count => count + 1)
+  const buttons = () => {
+    setTitle(prev => !prev)
   }
   return (
-
-    <div>
-
-      <h1>{count}</h1>
-      <button onClick={() => plus()}>plus</button>
-    </div>
+    <>
+      {title && <h1>Привет, я текст!</h1>}
+      <button onClick={()=>buttons()}>
+        {title ? "Скрыть текст" : "Показать текст"}
+      </button> </>
   );
 }
 
