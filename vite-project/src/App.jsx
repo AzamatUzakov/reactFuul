@@ -4,17 +4,17 @@ import './App.css'
 
 
 function App() {
-  const [onSelected, setOnSelected] = useState(true)
-  const on = () => {
-    setOnSelected(prev => !prev)
+  const [count, setCount] = useState(0)
+
+  const plus = () => {
+    setCount(count => count + 1)
   }
   return (
 
     <div>
 
-
-      <button onClick={() => on()}>{onSelected ? "Включено" : "Выключено"}</button>
-
+      <h1>{count}</h1>
+      <button onClick={() => plus()}>plus</button>
     </div>
   );
 }
