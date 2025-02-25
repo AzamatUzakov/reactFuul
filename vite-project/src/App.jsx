@@ -4,17 +4,18 @@ import './App.css'
 
 
 function App() {
-  const [title, setTitle] = useState(false)
+  const [colors, setColors] = useState(true)
 
-  const buttons = () => {
-    setTitle(prev => !prev)
+  const color = () => {
+    setColors(colors => !colors)
   }
   return (
-    <>
-      {title && <h1>Привет, я текст!</h1>}
-      <button onClick={()=>buttons()}>
-        {title ? "Скрыть текст" : "Показать текст"}
-      </button> </>
+    <div>
+      <body style={{ backgroundColor: colors ? "white" : "black" }}>
+
+        <button onClick={() => color()}>{colors ? "🌞" : "🌚"}</button>
+      </body>
+    </div>
   );
 }
 
