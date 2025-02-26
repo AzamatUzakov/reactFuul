@@ -4,17 +4,22 @@ import './App.css'
 
 
 function App() {
-  const [colors, setColors] = useState(true)
+  const [count, setCount] = useState(0)
+  const [step, setStep] = useState(1)
 
-  const color = () => {
-    setColors(colors => !colors)
+  const plusBtn = () => {
+    setCount(prev => prev + step)
   }
+  const minBtn = () => {
+    setCount(prev => prev - step)
+  }
+
   return (
     <div>
-      <body style={{ backgroundColor: colors ? "white" : "black" }}>
-
-        <button onClick={() => color()}>{colors ? "🌞" : "🌚"}</button>
-      </body>
+      <button onClick={() => plusBtn()}>+</button> <br />
+      <h1>{count}</h1>
+      <input type="number" value={step} onChange={(e)=>setStep(Number(e.target.value))} /><br />
+      <button onClick={() => minBtn()}>-</button>
     </div>
   );
 }
